@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]   # يشتغل بعد أي push على main (بما فيه merge للـ PR)
+    branches: [ main ]   # يشتغل تلقائياً بعد أي push/merge على main
 
 permissions:
   contents: read
@@ -18,14 +18,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
+
       - run: npm ci
+      # سكربت build عندك يشغّل type-check و vite build بالتوازي
       - run: npm run build
-      # لو مشروعك SPA ويستخدم history mode، خليه يرجّع index عند 404:
+
+      # لو SPA (Vue Router history) خلّي 404 يعيد توجيه للـ index
       - run: cp dist/index.html dist/404.html
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
