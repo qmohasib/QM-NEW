@@ -1,0 +1,4 @@
+@tailwind utilities;
+
+/* اختيارياً: خطوط/متغيرات */
+:root { --brand: #3b82f6; }
