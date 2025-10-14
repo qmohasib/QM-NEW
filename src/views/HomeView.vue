@@ -1,34 +1,66 @@
-<script setup lang="ts">
-import { useAppStore } from "@/stores/app.store";
-import { useI18n } from "vue-i18n";
-import Button from "primevue/button";
-import { useCookies } from "@/composables/useCookies";
+<script setup>
+import Footer from '@/components/Footer/Footer.vue';
+import SectionAboutUs from '@/components/Home/SectionAboutUs.vue';
+import SectionFaqSection from '@/components/Home/SectionFaqSection.vue';
+import SectionOne from '@/components/Home/SectionOne.vue';
+import SectionOurCustomer from '@/components/Home/SectionOurCustomer.vue';
+import SectionOurServices from '@/components/Home/SectionOurServices.vue';
+import SectionOurVision from '@/components/Home/SectionOurVision.vue';
+import SectionPackage from '@/components/Home/SectionPackage.vue';
+import SectionPartner from '@/components/Home/SectionPartner.vue';
+import SectionRecentBlogs from '@/components/Home/SectionRecentBlogs.vue';
+import SectionRegisterInterest from '@/components/Home/SectionRegisterInterest.vue';
+import SectionTow from '@/components/Home/SectionTow.vue';
 
-const app = useAppStore();
-const { t, locale } = useI18n();
-const cookies = useCookies();
 
-function toggleLang() {
-  locale.value = locale.value === "en" ? "ar" : "en";
-  app.setLocale(locale.value);
-  cookies.set("locale", locale.value);
-}
+// logo penter
+import airbnb from '@/assets/icon/clients/_Client logo.svg'
+import hubspot from '@/assets/icon/clients/_Client logo (1).svg'
+import google from '@/assets/icon/clients/_Client logo (2).svg'
+import microsoft from '@/assets/icon/clients/_Client logo (3).svg'
+import walmart from '@/assets/icon/clients/g15.svg'
+import fedex from '@/assets/icon/clients/Layer 2.svg'
+
+
 </script>
 
 <template>
-  <section class="p-6 max-w-3xl mx-auto">
+<div class="">
 
-  مرحبا
-    <h1 class="text-2xl font-bold mb-4">{{ t("hello") }}</h1>
+  <SectionOne />
+  <SectionTow  :speed="24" :gapPx="72" :logos="[
+  { src:airbnb, alt:'Airbnb' },
+  { src:hubspot, alt:'hubspot' },
+  { src:google, alt:'google' },
+  { src:microsoft, alt:'microsoft' },
+  { src:walmart, alt:'walmart' },
+  { src:fedex, alt:'fedex' },
+  
+]" />
+  <SectionOurServices />
+  
+  <SectionAboutUs />
 
-    <div class="flex items-center gap-3">
-      <Button label="Prime Button" icon="pi pi-check" />
-      <button class="px-4 py-2 rounded bg-blue-600 text-white" @click="app.increment()">
-        {{ t("counter", { n: app.count }) }}
-      </button>
-      <button class="px-3 py-2 border rounded" @click="toggleLang">
-        {{ locale === 'en' ? 'AR' : 'EN' }}
-      </button>
-    </div>
-  </section>
+  <SectionPackage />
+
+  <SectionOurVision />
+
+  <SectionPartner />
+
+  <SectionOurCustomer />
+
+  <SectionFaqSection />
+
+  <SectionRecentBlogs />
+
+  <SectionRegisterInterest />
+
+  <Footer />
+
+</div>
+
 </template>
+
+<style scoped>
+
+</style>

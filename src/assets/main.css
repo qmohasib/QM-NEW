@@ -1,4 +1,12 @@
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import "tailwindcss";
 
-/* اختيارياً: خطوط/متغيرات */
-:root { --brand: #3b82f6; }
+@theme {
+  --font-Outfit: "Outfit";
+  --font-Sansation :"Sansation";
+  --font-Nunito : "Nunito";
+  --font-Cairo : "Cairo"
+}
